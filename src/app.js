@@ -10,10 +10,36 @@ class IndecisionApp extends React.Component {
         };
     }
 
+    componentDidMount() {
+        try {
+            console.log('Indecision App Component Mounted!');
+            const json = localStorage.getItem("options");
+            const options = JSON.parse(json);
+            if (options) {
+                this.setState(() => ({ options }));
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.options.length !== this.state.options.length) {
+            console.log('Saving Data');
+            const json = JSON.stringify(this.state.options);
+            localStorage.setItem('options', json);
+        }
+        console.log('Indecision App Component Updated!');
+    }
+
+    componentWillUnmount() {
+        console.log('Component Will Unmount!');
+    }
+
     handleDeleteOption(option) {
-        var options=this.state.options;
-        options=options.filter((value,index,arr)=>value!==option);
-        this.setState(()=>({options}));
+        var options = this.state.options;
+        options = options.filter((value, index, arr) => value !== option);
+        this.setState(() => ({ options }));
     }
 
     handlePick() {
@@ -34,12 +60,7 @@ class IndecisionApp extends React.Component {
         } else if (this.state.options.indexOf(option) > -1) {
             return 'Option already exists';
         }
-        this.setState((previousState) => {
-            previousState.options.push(option)
-            return {
-                options: previousState.options
-            };
-        });
+        this.setState((prevState) => ({ options: prevState.options.concat(option) }));
     }
 
     render() {
@@ -80,7 +101,9 @@ const Action = (props) => {
 const Options = (props) => {
     return (
         <div>
-            <button onClick={props.handleDeleteOptions}>Remove All</button>
+            {props.options.length === 0 ? <p>Please add an option to get started!</p> :
+                <button onClick={props.handleDeleteOptions}>Remove All</button>
+            }
             <ul>
                 {
                     props.options.map((option) => <Option key={option} optionText={option} handleDeleteOption={props.handleDeleteOption} />)
@@ -126,11 +149,11 @@ const Option = (props) => {
             <li>
                 {props.optionText}
                 &emsp;&nbsp;
-                <button onClick={(e)=>{
-                        e.preventDefault();
-                        props.handleDeleteOption(props.optionText);
-                    }}>
-                Remove
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    props.handleDeleteOption(props.optionText);
+                }}>
+                    Remove
                 </button>
             </li>
         </div>

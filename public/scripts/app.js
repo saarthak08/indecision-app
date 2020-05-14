@@ -27,6 +27,37 @@ var IndecisionApp = function (_React$Component) {
     }
 
     _createClass(IndecisionApp, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            try {
+                console.log('Indecision App Component Mounted!');
+                var json = localStorage.getItem("options");
+                var options = JSON.parse(json);
+                if (options) {
+                    this.setState(function () {
+                        return { options: options };
+                    });
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }
+    }, {
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps, prevState) {
+            if (prevState.options.length !== this.state.options.length) {
+                console.log('Saving Data');
+                var json = JSON.stringify(this.state.options);
+                localStorage.setItem('options', json);
+            }
+            console.log('Indecision App Component Updated!');
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            console.log('Component Will Unmount!');
+        }
+    }, {
         key: 'handleDeleteOption',
         value: function handleDeleteOption(option) {
             var options = this.state.options;
@@ -61,11 +92,8 @@ var IndecisionApp = function (_React$Component) {
             } else if (this.state.options.indexOf(option) > -1) {
                 return 'Option already exists';
             }
-            this.setState(function (previousState) {
-                previousState.options.push(option);
-                return {
-                    options: previousState.options
-                };
+            this.setState(function (prevState) {
+                return { options: prevState.options.concat(option) };
             });
         }
     }, {
@@ -124,7 +152,11 @@ var Options = function Options(props) {
     return React.createElement(
         'div',
         null,
-        React.createElement(
+        props.options.length === 0 ? React.createElement(
+            'p',
+            null,
+            'Please add an option to get started!'
+        ) : React.createElement(
             'button',
             { onClick: props.handleDeleteOptions },
             'Remove All'
