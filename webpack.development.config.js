@@ -1,12 +1,18 @@
 const path = require('path');
+const webpack=require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: 'development',
     entry: './src/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
-        filename: 'bundle.js',
+        filename: 'static/bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    resolve: {
+        alias: {
+            "react-dom": "@hot-loader/react-dom",
+        },
     },
     module: {
         rules: [
@@ -42,9 +48,29 @@ module.exports = {
         ],
 
     },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                styles: {
+                    name: 'styles',
+                    test: /\.css$/,
+                    chunks: 'all',
+                    enforce: true
+                },
+                vendor: {
+                    chunks: 'initial',
+                    test: 'vendor',
+                    name: 'vendor',
+                    enforce: true
+                }
+            }
+        }
+    },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new HtmlWebPackPlugin({
             template: "./public/index.html",
+            filename: "./index.html"
         })
     ],
     devtool: 'inline-source-map',
@@ -53,6 +79,7 @@ module.exports = {
         port: 8080,
         historyApiFallback: true,
         open: true,
+        hot: true,
     }
 
 };

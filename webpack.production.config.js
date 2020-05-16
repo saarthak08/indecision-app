@@ -6,8 +6,8 @@ module.exports = {
     mode: 'production',
     entry: './src/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
-        filename: 'bundle.js',
+        filename: 'static/bundle.js',
+        path: path.resolve(__dirname, 'dist'),
     },
     module: {
         rules: [
@@ -54,13 +54,31 @@ module.exports = {
         ],
 
     },
+    optimization: {
+        splitChunks: {
+          cacheGroups: {
+            styles: {
+              name: 'styles',
+              test: /\.css$/,
+              chunks: 'all',
+              enforce: true
+            },
+            vendor: {
+              chunks: 'initial',
+              test: 'vendor',
+              name: 'vendor',
+              enforce: true
+            }
+          }
+        }
+      },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./public/index.html",
-            filename: "../index.html"
+            filename: "./index.html"
         }),
         new MiniCssExtractPlugin({
-            filename: 'styles/styles.[hash].css'
+            filename: 'styles/styles.css'
         })
     ],
 };
