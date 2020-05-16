@@ -36,6 +36,7 @@ module.exports = {
                             modules: true,
                             importLoaders: 1,
                             localsConvention: 'camelCase',
+                            // Create source maps for CSS files
                             sourceMap: true
                         }
                     },
@@ -70,7 +71,7 @@ module.exports = {
     plugins: [
         new HtmlWebPackPlugin({
             template: "./public/index.html",
-            filename: "./index.html"
+            filename: "index.html"
         }),
         new MiniCssExtractPlugin({
             filename: 'styles/styles.css'
