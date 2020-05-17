@@ -1,0 +1,24 @@
+@import './components/styles/action.css';
+@import './components/styles/addOption.css';
+@import './components/styles/header.css';
+@import './components/styles/indecisionApp.css';
+@import './components/styles/option.css';
+@import './components/styles/optionModal.css';
+@import './components/styles/options.css';
+
+
+h1 {
+    margin: 0;
+}
+
+body {  
+    font-family:'Montserrat', sans-serif;   
+    background-color:#333745;     
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}

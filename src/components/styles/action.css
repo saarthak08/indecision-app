@@ -1,0 +1,20 @@
+.actionButton {
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    border-radius: 10px;
+    background-color: #8357C5;
+    padding: 20px 120px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 0;
+    border-bottom: .5rem solid rgb(89, 59, 138);
+}
+
+.actionButton:disabled,
+.actionButton[disabled] {
+    opacity: 0.5;
+}

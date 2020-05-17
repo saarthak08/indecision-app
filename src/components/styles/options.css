@@ -1,0 +1,36 @@
+.optionsBlock {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 8px;
+    color:#bcc3db;
+    background-color:#3C4251;
+}
+
+.removeButton {
+    color:#bcc3db;
+    background-color:transparent;
+    border-color:transparent;
+}
+
+
+.optionDiv {
+    background-color:#464B5E;
+    border-bottom:1px groove #bcc3db;
+}
+
+#addOptionText {
+    margin:0;
+    color:#bcc3db;
+    height: 100%;
+    padding: 40px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+#optionsList {
+    margin: 0;
+    color:#bcc3db; 
+    padding:0 0;
+}
+

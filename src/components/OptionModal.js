@@ -5,7 +5,8 @@ const OptionModal = (props) => {
     return (
         <Modal isOpen={!!props.selectedOption}
             contentLabel="Selected Option"
-            appElement={app}>
+            appElement={app}
+            closeTimeoutMS={200}>
             <h3>Selected Option</h3>
             {props.selectedOption && <p>{props.selectedOption}</p>}
             <button onClick={props.clearSelectedOption}>Okay</button>

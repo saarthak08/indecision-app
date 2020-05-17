@@ -1,0 +1,17 @@
+@import './options.css';
+
+#optionItem {
+    display: flex;
+    color: white;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+
+#optionDiv {
+    border-bottom:1px groove #bcc3db;
+}
+
+#optionText {
+    font-size: larger;
+}

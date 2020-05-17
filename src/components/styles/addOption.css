@@ -1,0 +1,40 @@
+.addOptionDiv {
+    padding: 15px 5px;
+    background-color:#464B5E;
+}
+
+#addOptionForm {
+    display: flex;
+    font-weight: 600;
+    justify-content: center;
+}
+
+#inputAddOption {
+    width: 70%;
+    margin-right: 10px;
+    background-color:#333745;
+    border:0;
+    color:white;
+    padding: 5px;
+    border-bottom: 2px solid #24262f
+}
+
+#addOptionButton {
+    background-color: #8357C5;
+    text-align: center;
+    padding: 10px 10px;
+    font-size: 15px;
+    color:white;
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 0;
+    border-bottom: .5rem solid rgb(89, 59, 138);
+}
+
+
+#errorText {
+    padding-left: 10px;
+    font-style: italic;
+    color:white;
+
+}

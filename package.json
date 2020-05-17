@@ -9,6 +9,7 @@
     "build": "yarn pre & NODE_ENV=production webpack --config ./webpack.production.config.js"
   },
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

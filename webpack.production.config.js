@@ -32,42 +32,12 @@ module.exports = {
                     },
                     {
                         loader: 'css-loader',
-                        options: {
-                            modules: true,
-                            importLoaders: 1,
-                            localsConvention: 'camelCase',
-                            // Create source maps for CSS files
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        // PostCSS will run before css-loader and will 
-                        // minify and autoprefix our CSS rules.
-                        loader: 'postcss-loader',
                     }
                 ]
             }
         ],
 
     },
-    optimization: {
-        splitChunks: {
-          cacheGroups: {
-            styles: {
-              name: 'styles',
-              test: /\.css$/,
-              chunks: 'all',
-              enforce: true
-            },
-            vendor: {
-              chunks: 'initial',
-              test: 'vendor',
-              name: 'vendor',
-              enforce: true
-            }
-          }
-        }
-      },
     plugins: [
         new HtmlWebPackPlugin({
             template: "./public/index.html",

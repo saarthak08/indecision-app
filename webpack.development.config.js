@@ -38,8 +38,6 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
-                            localsConvention: 'camelCase',
                             sourceMap: true
                         }
                     }
@@ -47,24 +45,6 @@ module.exports = {
             },
         ],
 
-    },
-    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
-                    chunks: 'all',
-                    enforce: true
-                },
-                vendor: {
-                    chunks: 'initial',
-                    test: 'vendor',
-                    name: 'vendor',
-                    enforce: true
-                }
-            }
-        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
