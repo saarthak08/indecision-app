@@ -6,24 +6,26 @@
 #addOptionForm {
     display: flex;
     font-weight: 600;
+    flex-direction: column;
     justify-content: center;
 }
 
 #inputAddOption {
-    width: 70%;
-    margin-right: 10px;
     background-color:#333745;
     border:0;
     color:white;
-    padding: 5px;
+    flex-grow: 1;
+    margin: 0 10px 0 10px;
+    padding: 10px 15px;
     border-bottom: 2px solid #24262f
 }
 
 #addOptionButton {
     background-color: #8357C5;
     text-align: center;
-    padding: 10px 10px;
+    padding: 10px 15px;
     font-size: 15px;
+    margin: 0 10px;
     color:white;
     font-weight: 500;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -31,6 +33,17 @@
     border-bottom: .5rem solid rgb(89, 59, 138);
 }
 
+
+@media(min-width:45rem) {
+    #addOptionForm {
+        flex-direction: row;
+    }
+
+    #inputAddOption {
+        margin:0 10px 0 20px;
+        padding: 10px 15px;
+    }
+}
 
 #errorText {
     padding-left: 10px;

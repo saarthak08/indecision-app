@@ -50,7 +50,8 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebPackPlugin({
             template: "./public/index.html",
-            filename: "index.html"
+            filename: "index.html",
+            favicon:"./public/images/favicon.png"
         })
     ],
     devtool: 'inline-source-map',
