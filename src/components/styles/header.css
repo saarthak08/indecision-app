@@ -9,6 +9,7 @@
     font-size: 2.5rem;
     text-decoration: solid;
     text-shadow: aquamarine;
+    padding: 0 20px;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
 }
@@ -16,5 +17,6 @@
 #headerSubtitle {
     color:#bcc3db;
     font-size: 1.3rem;
+    padding: 0 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

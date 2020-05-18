@@ -1,16 +1,17 @@
-.actionButton {
+.actionButtonDiv {
+    text-align: center;
     margin-top: 20px;
-    text-decoration: none;
-    display: inline-block;
+}
+
+.actionButton {
     color: white;
     border-radius: 10px;
     background-color: #8357C5;
-    padding: 20px 120px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 500;
+    width: 80%;
+    padding: 1.5rem;
+    font-size: 1.4rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    border: 0;
+    border: none;
     border-bottom: .5rem solid rgb(89, 59, 138);
 }
 
