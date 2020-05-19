@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "pre": "rimraf dist",
-    "dev": "yarn pre & webpack-dev-server --config ./webpack.development.config.js",
+    "dev": "yarn pre & webpack-dev-server --host 0.0.0.0 --config ./webpack.development.config.js",
     "build": "yarn pre & NODE_ENV=production webpack --config ./webpack.production.config.js"
   },
   "dependencies": {
