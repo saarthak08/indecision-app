@@ -41,6 +41,7 @@ common = {
     output: {
         filename: 'static/bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        publicPath:'/'
     },
     module: {
         rules: [
